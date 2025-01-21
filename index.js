@@ -103,4 +103,4 @@ function restartGame() {
     createBoard();
 }
 
-createBoard();
+create
