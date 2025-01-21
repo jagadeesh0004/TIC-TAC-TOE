@@ -24,7 +24,7 @@ body {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
     grid-gap: 5px;
     margin: 20px auto;
     width: 100%;
@@ -39,12 +39,14 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 20px; /* Adds flexibility in sizing */
+    transition: background-color 0.3s, transform 0.2s;
+    aspect-ratio: 1 / 1; /* Ensures square cells */
+    width: 100%; /* Cells will fill the grid space */
 }
 
 .cell:hover {
     background-color: #e0e0e0;
+    transform: scale(1.1); /* Slight enlargement on hover */
 }
 
 .cell.x {
@@ -64,6 +66,15 @@ button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
 }
 
 /* Media Queries for Responsiveness */
