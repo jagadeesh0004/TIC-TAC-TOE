@@ -1,88 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffccbc; /* Peach color */
+*{
     margin: 0;
+    padding: 0;
 }
-
-.container {
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-    padding: 20px;
+h1{
+    text-decoration: underline;
 }
-
-.scoreboard {
+body{
+    background-color: #C0D684;
+text-align: center;
+position: relative;
+}
+.main-container{
+    height: 70vh;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.game-box{
+    height: 60vmin;
+    width: 60vmin;
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    font-size: 1.2em;
+    flex-wrap: wrap;  
+    justify-content: center;
+    align-items: center;
+    gap  : 1.5vmin;
 }
-
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-    grid-gap: 5px;
-    margin: 20px auto;
-    width: 100%;
-    max-width: 300px; /* Responsive maximum width */
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border: none;
+    border-radius: 15px;
+    background-color: aliceblue;
+    color: blueviolet;
+    font-size: 8vmin;
+    
 }
-
-.cell {
-    background-color: #fff;
-    border: 2px solid #333;
-    font-size: 3em; /* Increased size for X and O */
+.reset{
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.new{
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    
+}
+.winner{
+    height: 100vmin;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    aspect-ratio: 1 / 1; /* Ensures square cells */
-    width: 100%; /* Cells will fill the grid space */
+    flex-direction: column;
+    color: rgb(255, 218, 11);
+    font-weight: bold;
+    font-size: 10vmin;
 }
-
-.cell:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.1); /* Slight enlargement on hover */
-}
-
-.cell.x {
-    color: red;
-}
-
-.cell.o {
-    color: blue;
-}
-
-.status {
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 480px) {
-    .cell {
-        font-size: 2.5em; /* Decrease font size on smaller screens */
-    }
-    .scoreboard {
-        flex-direction: column; /* Stack the scores vertically */
-    }
+.hide{
+    display: none;
 }
