@@ -19,17 +19,34 @@ boxes.forEach((box) => {
     }
     box.disabled = true;
     checkWinner();
+    checkDraw();
+    if (gameOver || box.innerText !== "") return;
   });
 });
+let gameover = false;
 
 function checkWinner() {
   win.forEach((w) => {
     if (boxes[w[0]].innerText === boxes[w[1]].innerText && boxes[w[1]].innerText === boxes[w[2]].innerText && boxes[w[0]].innerText !== "") {
+      gameover = true;
       msg.innerText = "Player " + boxes[w[0]].innerText + " wins";
       messagebox.classList.remove("hide");
     }
   });
 }
+function checkDraw() {
+  let isDraw = true;
+  boxes.forEach((box) => {
+    if (box.innerText === "") isDraw = false;
+  });
+
+  if (isDraw && !gameOver) {
+    msg.innerText = "It's a draw!";
+    messagebox.classList.remove("hide");
+    gameOver = true;
+  }
+}
+
 
 reset.addEventListener("click", () => {
   boxes.forEach((box) => {
