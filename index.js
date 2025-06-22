@@ -31,6 +31,7 @@ function checkWinner() {
       gameover = true;
       msg.innerText = "Player " + boxes[w[0]].innerText + " wins";
       messagebox.classList.remove("hide");
+      return;
     }
   });
 }
