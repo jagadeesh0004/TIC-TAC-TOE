@@ -8,6 +8,7 @@ let win = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 let gameover = false;
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
+    if (gameover || box.innerText !== "") return;
     if (turnx) {
       box.style.color = "red";
       box.innerText = "X";
@@ -20,7 +21,6 @@ boxes.forEach((box) => {
     box.disabled = true;
     checkWinner();
     checkDraw();
-    if (gameover || box.innerText !== "") return;
   });
 });
 
@@ -60,6 +60,7 @@ reset.addEventListener("click", () => {
   msg.innerText = "";
   messagebox.classList.add("hide");
   turnx = false;
+  gameover = false;
 });
 
 newgame.addEventListener("click", () => {
@@ -70,4 +71,5 @@ newgame.addEventListener("click", () => {
   msg.innerText = "";
   messagebox.classList.add("hide");
   turnx = false;
+  gameover = false;
 });
