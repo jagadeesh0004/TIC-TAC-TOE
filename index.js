@@ -5,25 +5,25 @@ let msg = document.querySelector("#msg");
 let newgame = document.querySelector(".new");
 let turnx = false;
 let win = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-
+let gameover = false;
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnx) {
-      box.innerText = "X";
       box.style.color = "red";
+      box.innerText = "X";
       turnx = false;
     } else {
-      box.innerText = "O";
       box.style.color = "blue";
+      box.innerText = "O";
       turnx = true;
     }
     box.disabled = true;
     checkWinner();
     checkDraw();
-    if (gameOver || box.innerText !== "") return;
+    if (gameover || box.innerText !== "") return;
   });
 });
-let gameover = false;
+
 
 function checkWinner() {
   win.forEach((w) => {
@@ -35,17 +35,21 @@ function checkWinner() {
   });
 }
 function checkDraw() {
-  let isDraw = true;
+  let allFilled = true;
+
   boxes.forEach((box) => {
-    if (box.innerText === "") isDraw = false;
+    if (box.innerText === "") {
+      allFilled = false;
+    }
   });
 
-  if (isDraw && !gameOver) {
+  if (allFilled && !gameover) {
     msg.innerText = "It's a draw!";
     messagebox.classList.remove("hide");
-    gameOver = true;
+    gameover = true;
   }
 }
+
 
 
 reset.addEventListener("click", () => {
